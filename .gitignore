@@ -1,0 +1,5 @@
+*_builds
+*_build
+*.DS_STORE
+*.vscode
+*lib
