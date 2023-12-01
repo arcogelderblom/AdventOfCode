@@ -16,7 +16,7 @@ My entry for the different years of Advent Of Code
 | 2023 | 2 |
 
 ## Input files
-As per request by Eric Wastl the actual input files that I've got for my entry are hidden inside of a submodule that points to a private repository. All my solutions however should be able to run all possible possible inputs, so grab yours and try it out!
+As per request by Eric Wastl the actual input files that I've got for my entry are hidden inside of a submodule that points to a private repository. All my solutions however should be able to run all possible inputs, so grab yours and try it out!
 
 ## How to run
 There are 2 scripts included in this repository. First you need to build the generic library. This can be done by using the following command:
