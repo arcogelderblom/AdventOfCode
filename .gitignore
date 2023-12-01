@@ -2,4 +2,4 @@
 *_build
 *.DS_STORE
 *.vscode
-*lib
+*/lib
