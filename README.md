@@ -16,17 +16,21 @@ My entry for the different years of Advent Of Code
 | 2020 |  |
 | 2021 | 50 |
 | 2022 |  |
-| 2023 | 0 |
+| 2023 | 2 |
 
 ## Input files
 As per request by Eric Wastl the actual input files that I've got for my entry are hidden inside of a submodule that points to a private repository. All my solutions however should be able to run all possible possible inputs, so grab yours and try it out!
 
 ## How to run
-There are 2 scripts included in this repository. First you need to build the generic library.
-```./build_genericlib.sh```
+There are 2 scripts included in this repository. First you need to build the generic library. This can be done by using the following command:
+```
+./build_genericlib.sh
+```
 Afterwards you can run any day that is available with a solution.
-```./run_aoc_day.sh <day> <year>```
-For example: ```./run_aoc_day.sh Day01 2023```
+```
+./run_aoc_day.sh <day> <year>
+```
+Example for running day 1 of 2023: ```./run_aoc_day.sh Day01 2023```
 
 ## GitHub workflow
 The GitHub workflow runs automatically to build and run the code. Current OSs that are included in the GitHub workflow are Ubuntu (`ubuntu-latest`) and macOS (`macos-latest`)
