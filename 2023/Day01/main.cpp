@@ -197,11 +197,11 @@ int part2(const std::vector<std::string> & input)
 
 int main(void) 
 {
-    FileHandler fileHandlerTest1("../AdventOfCodeInputFiles/2023/day01_testinput1.txt");
+    FileHandler fileHandlerTest1("input-files/2023/day01_testinput1.txt");
     std::vector<std::string> testInput = StringParser::toVector(fileHandlerTest1.getBuffer(), '\n');
     assert(part1(testInput) == 142);
 
-    FileHandler fileHandler("../AdventOfCodeInputFiles/2023/day01.txt");
+    FileHandler fileHandler("input-files/2023/day01.txt");
     std::vector<std::string> input = StringParser::toVector(fileHandler.getBuffer(), '\n');
 
     auto t_begin = std::chrono::high_resolution_clock::now();
@@ -210,7 +210,7 @@ int main(void)
     std::cout << "Completed in: " << std::chrono::duration<double, std::milli>(t_end - t_begin).count() << " ms" << std::endl;
 
 
-    FileHandler fileHandlerTest2("../AdventOfCodeInputFiles/2023/day01_testinput2.txt");
+    FileHandler fileHandlerTest2("input-files/2023/day01_testinput2.txt");
     std::vector<std::string> testInput2 = StringParser::toVector(fileHandlerTest2.getBuffer(), '\n');
     assert(part2(testInput2) == 281);
 
