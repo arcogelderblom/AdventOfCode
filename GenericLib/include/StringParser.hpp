@@ -6,5 +6,6 @@
 class StringParser
 {
 public:
-    static std::vector<std::string> toVector(const std::string & src, const char & delimiter);
+    static std::vector<std::string> toVector(std::string src, const std::string & delimiter);
+    static std::vector<int> toIntVector(std::string src, const std::string & delimiter);
 };

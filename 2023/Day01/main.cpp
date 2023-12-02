@@ -198,11 +198,11 @@ int part2(const std::vector<std::string> & input)
 int main(void) 
 {
     FileHandler fileHandlerTest1("input-files/2023/day01_testinput1.txt");
-    std::vector<std::string> testInput = StringParser::toVector(fileHandlerTest1.getBuffer(), '\n');
+    std::vector<std::string> testInput = StringParser::toVector(fileHandlerTest1.getBuffer(), "\n");
     assert(part1(testInput) == 142);
 
     FileHandler fileHandler("input-files/2023/day01.txt");
-    std::vector<std::string> input = StringParser::toVector(fileHandler.getBuffer(), '\n');
+    std::vector<std::string> input = StringParser::toVector(fileHandler.getBuffer(), "\n");
 
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 1, puzzle 1: " << std::flush << part1(input) << std::endl;
@@ -211,7 +211,7 @@ int main(void)
 
 
     FileHandler fileHandlerTest2("input-files/2023/day01_testinput2.txt");
-    std::vector<std::string> testInput2 = StringParser::toVector(fileHandlerTest2.getBuffer(), '\n');
+    std::vector<std::string> testInput2 = StringParser::toVector(fileHandlerTest2.getBuffer(), "\n");
     assert(part2(testInput2) == 281);
 
     t_begin = std::chrono::high_resolution_clock::now();
