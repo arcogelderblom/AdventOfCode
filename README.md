@@ -1,4 +1,4 @@
-# :christmas_tree: Advent Of Code :christmas_tree:
+# Advent Of Code :christmas_tree::christmas_tree:
 
 My entry for the different years of Advent Of Code
 
