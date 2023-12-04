@@ -10,7 +10,7 @@
 #include "FileHandler.hpp"
 #include "StringParser.hpp"
 
-long part1(const std::vector<std::string> & input) 
+int part1(const std::vector<std::string> & input) 
 {
     int result = 0;
     for (const std::string & line : input)
@@ -40,7 +40,7 @@ long part1(const std::vector<std::string> & input)
 
 long part2(const std::vector<std::string> & input) 
 {
-    int result = 0;
+    long result = 0;
     std::map<int, int> copiesPerCard;
     copiesPerCard[1] = 0;
     for (int i = 0; i < input.size(); i++)
