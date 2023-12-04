@@ -28,3 +28,8 @@ Afterwards you can run any day that is available with a solution.
 ./run_aoc_day.sh <day> <year>
 ```
 Example for running day 1 of 2023: ```./run_aoc_day.sh Day01 2023```
+If you would like to run all days of a given year you can do so by using the script for that.
+```
+./run_aoc_year.sh <year>
+```
+Example for running all days of 2021: ```./run_aoc_year.sh 2021```
