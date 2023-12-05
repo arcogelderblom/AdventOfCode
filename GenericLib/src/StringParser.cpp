@@ -32,3 +32,14 @@ std::vector<int> StringParser::toIntVector(std::string src, const std::string & 
     }
     return result;
 }
+
+std::vector<long long> StringParser::toLongLongVector(std::string src, const std::string & delimiter)
+{
+    std::vector<std::string> vec = StringParser::toVector(src, delimiter);
+    std::vector<long long> result;
+    for(const std::string & item : vec)
+    {
+        result.push_back(std::stoll(item));
+    }
+    return result;
+}
