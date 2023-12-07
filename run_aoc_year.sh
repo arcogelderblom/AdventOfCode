@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd $1
+rm -rf _build
 cmake -H. -B_build -DCMAKE_BUILD_TYPE=Release
 cmake --build _build --config Release
 cd ..
