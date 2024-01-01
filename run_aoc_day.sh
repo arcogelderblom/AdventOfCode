@@ -4,6 +4,7 @@
 
 
 cd $2
+rm -rf _build/$1
 cmake -H. -B_build -DCMAKE_BUILD_TYPE=Debug -DAOC_DAY=$1
 cmake --build _build --config Debug
 cd ..
