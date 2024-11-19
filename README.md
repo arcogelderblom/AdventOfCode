@@ -5,14 +5,7 @@ My entry for the different years of Advent Of Code
 ## Progress
 | Year | Stars |
 | - | - |
-| 2015 | |
-| 2016 | 0 |
-| 2017 | 0 |
-| 2018 | |
-| 2019 | |
-| 2020 |  |
 | 2021 | 50 :star2: |
-| 2022 |  |
 | 2023 | 28 :star2: |
 | 2024 | 0 :star2: |
 
