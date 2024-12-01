@@ -5,7 +5,6 @@
 #include <sstream>
 #include <string>
 #include <iterator>
-#include <map>
 
 #include "FileHandler.hpp"
 #include "StringParser.hpp"
