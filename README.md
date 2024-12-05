@@ -8,7 +8,7 @@ My entry for the different years of Advent Of Code
 | 2020 | 50 :star2: |
 | 2021 | 50 :star2: |
 | 2023 | 28 :star2: |
-| 2024 | 8 :star2: |
+| 2024 | 10 :star2: |
 
 ## Input files
 As per request by Eric Wastl the actual input files that I've got for my entry are hidden inside of a submodule that points to a private repository. All my solutions however should be able to run all possible inputs, so grab yours and try it out!
