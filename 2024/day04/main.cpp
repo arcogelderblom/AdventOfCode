@@ -29,14 +29,14 @@ enum Direction
 std::map<Direction, std::pair<int,int>> createDirectionsMap()
 {
     std::map<Direction, std::pair<int,int>> directions;
-    directions[LU] = std::make_pair(-1, 1);
-    directions[UU] = std::make_pair(0, 1);
-    directions[RU] = std::make_pair(1, 1);
+    directions[LU] = std::make_pair(-1, -1);
+    directions[UU] = std::make_pair(0, -1);
+    directions[RU] = std::make_pair(1, -1);
     directions[LL] = std::make_pair(-1, 0);
     directions[RR] = std::make_pair(1, 0);
-    directions[LD] = std::make_pair(-1, -1);
-    directions[DD] = std::make_pair(0, -1);
-    directions[RD] = std::make_pair(1, -1);
+    directions[LD] = std::make_pair(-1, 1);
+    directions[DD] = std::make_pair(0, 1);
+    directions[RD] = std::make_pair(1, 1);
     return directions;
 }
 
