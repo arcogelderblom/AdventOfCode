@@ -40,7 +40,37 @@ bool isInBounds(const std::pair<int, int> & position, const std::vector<std::str
     return position.first >= 0 && position.first < floorplan[position.second].size() && position.second >= 0 && position.second < floorplan.size();
 }
 
-std::set<std::tuple<int, int, Direction>> getAllVisitedLocations(const std::vector<std::string> & floorplan, std::pair<int, int> positionGuard, Direction direction)
+void goToNextLocation(const std::vector<std::string> & floorplan, std::map<Direction, std::pair<int, int>> & directions, std::pair<int, int> & positionGuard, Direction & direction)
+{
+    std::pair<int, int> nextPosition = std::make_pair((positionGuard.first + directions[direction].first), (positionGuard.second + directions[direction].second));
+    while (floorplan[nextPosition.second][nextPosition.first] == '#')
+    {
+        if (direction == L)
+        {
+            direction = U;
+        }
+        else
+        {
+            direction = static_cast<Direction>((int)direction + 1);
+        }
+        nextPosition = std::make_pair((positionGuard.first + directions[direction].first), (positionGuard.second + directions[direction].second));
+    }
+    positionGuard = nextPosition;
+}
+
+std::vector<std::tuple<int, int, Direction>> getAllVisitedLocations(const std::vector<std::string> & floorplan, std::map<Direction, std::pair<int, int>> & directions, std::pair<int, int> positionGuard, Direction direction)
+{
+    std::vector<std::tuple<int,int,Direction>> visitedPositions;
+
+    while (isInBounds(positionGuard, floorplan))
+    {
+        visitedPositions.push_back(std::make_tuple(positionGuard.first, positionGuard.second, direction));
+        goToNextLocation(floorplan, directions, positionGuard, direction);
+    }
+    return visitedPositions;
+}
+
+int part1(const std::vector<std::string> & input) 
 {
     std::map<Direction, std::pair<int, int>> directions;
     directions[U] = std::make_pair(0, -1);
@@ -48,35 +78,10 @@ std::set<std::tuple<int, int, Direction>> getAllVisitedLocations(const std::vect
     directions[D] = std::make_pair(0, 1);
     directions[L] = std::make_pair(-1, 0);
 
-    std::set<std::tuple<int,int,Direction>> visitedPositions;
-
-    while (isInBounds(positionGuard, floorplan))
-    {
-        visitedPositions.insert(std::make_tuple(positionGuard.first, positionGuard.second, direction));
-        std::pair<int, int> nextPosition = std::make_pair((positionGuard.first + directions[direction].first), (positionGuard.second + directions[direction].second));
-        while (floorplan[nextPosition.second][nextPosition.first] == '#')
-        {
-            if (direction == L)
-            {
-                direction = U;
-            }
-            else
-            {
-                direction = static_cast<Direction>((int)direction + 1);
-            }
-            nextPosition = std::make_pair((positionGuard.first + directions[direction].first), (positionGuard.second + directions[direction].second));
-        }
-        positionGuard = nextPosition;
-    }
-    return visitedPositions;
-}
-
-int part1(const std::vector<std::string> & input) 
-{
     std::pair<int, int> positionGuard = getPosition('^', input);
     Direction currentDirection = U;
 
-    std::set<std::tuple<int, int, Direction>> visitedPositionsGuard = getAllVisitedLocations(input, positionGuard, currentDirection);
+    std::vector<std::tuple<int, int, Direction>> visitedPositionsGuard = getAllVisitedLocations(input, directions, positionGuard, currentDirection);
 
     std::set<std::pair<int, int>> uniqueLocations;
     std::for_each(visitedPositionsGuard.begin(), visitedPositionsGuard.end(), [&](const std::tuple<int, int, Direction> & elem){ uniqueLocations.insert(std::make_pair(std::get<0>(elem), std::get<1>(elem))); });
@@ -97,7 +102,7 @@ int part2(const std::vector<std::string> & input)
     std::pair<int, int> startPosition = getPosition('^', input);
     Direction startDirection = U;
 
-    std::set<std::tuple<int, int, Direction>> visitedLocations = getAllVisitedLocations(input, startPosition, startDirection);
+    std::vector<std::tuple<int, int, Direction>> visitedLocations = getAllVisitedLocations(input, directions, startPosition, startDirection);
     std::set<std::pair<int, int>> potentialBlockedLocations;
     std::for_each(visitedLocations.begin(), visitedLocations.end(), [&](const std::tuple<int, int, Direction> & elem){ potentialBlockedLocations.insert(std::make_pair(std::get<0>(elem), std::get<1>(elem))); });
 
@@ -117,22 +122,7 @@ int part2(const std::vector<std::string> & input)
         while (isInBounds(currentPosition, floorplan) && steps.find(std::make_tuple(currentPosition.first, currentPosition.second, currentDirection)) == steps.end())
         {
             steps.insert(std::make_tuple(currentPosition.first, currentPosition.second, currentDirection));
-            std::pair<int, int> nextPosition = std::make_pair((currentPosition.first + directions[currentDirection].first), (currentPosition.second + directions[currentDirection].second));
-            
-            while (floorplan[nextPosition.second][nextPosition.first] == '#')
-            {
-                if (currentDirection == L)
-                {
-                    currentDirection = U;
-                }
-                else
-                {
-                    currentDirection = static_cast<Direction>((int)currentDirection + 1);
-                }
-                nextPosition = std::make_pair((currentPosition.first + directions[currentDirection].first), (currentPosition.second + directions[currentDirection].second));
-            }
-
-            currentPosition = nextPosition;
+            goToNextLocation(floorplan, directions, currentPosition, currentDirection);
         }
 
         if (isInBounds(currentPosition, floorplan))
