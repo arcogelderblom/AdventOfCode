@@ -64,7 +64,7 @@ int part2(const std::vector<std::string> & input)
         j -= occurences;
         result += firstList[i] * occurences;
     }
-    std::cout << result << std::endl;
+    
     return result;
 }
 
