@@ -80,7 +80,7 @@ unsigned long long part2(const std::vector<std::string> & input)
     
     std::string diskmap = input[0];
     
-    std::vector<std::string> filemap;
+    std::vector<int> filemap;
     std::set<int> movedFilesIndices;
     int id = 0;
 
@@ -95,11 +95,11 @@ unsigned long long part2(const std::vector<std::string> & input)
             {
                 if (fileMoved)
                 {
-                    filemap.push_back(".");
+                    filemap.push_back(0);
                 }
                 else 
                 {
-                    filemap.push_back(std::to_string(id));
+                    filemap.push_back(id);
                 }
             }
             id++;
@@ -126,7 +126,7 @@ unsigned long long part2(const std::vector<std::string> & input)
                     {
                         for (int n = 0; n < (diskmap[j] - '0'); n++)
                         {
-                            filemap.push_back(std::to_string(highID));
+                            filemap.push_back(highID);
                             freeSpace--;
                         }
                         movedFilesIndices.insert(j);
@@ -141,7 +141,7 @@ unsigned long long part2(const std::vector<std::string> & input)
                 }
                 else
                 {
-                    filemap.push_back(".");
+                    filemap.push_back(0);
                     freeSpace--;
                 }
             }
@@ -150,10 +150,7 @@ unsigned long long part2(const std::vector<std::string> & input)
 
     for (int i = 0; i < filemap.size(); i++)
     {
-        if (filemap[i] != ".")
-        {
-            result += i * std::stoi(filemap[i]);
-        }
+        result += i * filemap[i];
     }
 
     return result;
