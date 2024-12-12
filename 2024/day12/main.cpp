@@ -65,8 +65,6 @@ int calculateSides(const std::set<std::pair<int, int>> & region)
     std::map<std::pair<int, int>, std::pair<int, int>> fencesFromTo;
     for (const auto & plant : region)
     {
-        int x = 0;
-
         bool upNeighbour = region.find(std::make_pair(plant.first, plant.second - 1)) != region.end();
         bool downNeighbour = region.find(std::make_pair(plant.first, plant.second + 1)) != region.end();
         bool leftNeighbour = region.find(std::make_pair(plant.first - 1, plant.second)) != region.end();
@@ -79,26 +77,25 @@ int calculateSides(const std::set<std::pair<int, int>> & region)
         if (!upNeighbour && !downNeighbour && !leftNeighbour && !rightNeighbour)
         {
             sides += 4;
-            x += 4;
         }
 
         // 2 outer corners
-        if (!upNeighbour && !leftNeighbour && !downNeighbour && rightNeighbour) { sides += 2; x += 2; }
-        if (!upNeighbour && !rightNeighbour && !downNeighbour && leftNeighbour) { sides += 2; x += 2; }
-        if (!leftNeighbour && !upNeighbour && !rightNeighbour && downNeighbour) { sides += 2; x += 2; }
-        if (!leftNeighbour && !downNeighbour && !rightNeighbour && upNeighbour) { sides += 2; x += 2; }
+        if (!upNeighbour && !leftNeighbour && !downNeighbour && rightNeighbour) { sides += 2; }
+        if (!upNeighbour && !rightNeighbour && !downNeighbour && leftNeighbour) { sides += 2; }
+        if (!leftNeighbour && !upNeighbour && !rightNeighbour && downNeighbour) { sides += 2; }
+        if (!leftNeighbour && !downNeighbour && !rightNeighbour && upNeighbour) { sides += 2; }
         
         // inner corner
-        if (upNeighbour && leftNeighbour && !leftUpNeighbour) { sides += 1; x += 1; }
-        if (upNeighbour && rightNeighbour && !rightUpNeighbour) { sides += 1; x += 1; }
-        if (downNeighbour && leftNeighbour && !leftDownNeighbour) { sides += 1; x += 1; }
-        if (downNeighbour && rightNeighbour && !rightDownNeighbour) { sides += 1; x += 1; }
+        if (upNeighbour && leftNeighbour && !leftUpNeighbour) { sides += 1; }
+        if (upNeighbour && rightNeighbour && !rightUpNeighbour) { sides += 1; }
+        if (downNeighbour && leftNeighbour && !leftDownNeighbour) { sides += 1; }
+        if (downNeighbour && rightNeighbour && !rightDownNeighbour) { sides += 1; }
 
         //outer corner
-        if (upNeighbour && leftNeighbour && !rightNeighbour && !downNeighbour) { sides += 1; x += 1; }
-        if (upNeighbour && rightNeighbour && !leftNeighbour && !downNeighbour) { sides += 1; x += 1; }
-        if (downNeighbour && leftNeighbour && !rightNeighbour && !upNeighbour) { sides += 1; x += 1; }
-        if (downNeighbour && rightNeighbour && !leftNeighbour && !upNeighbour) { sides += 1; x += 1; }
+        if (upNeighbour && leftNeighbour && !rightNeighbour && !downNeighbour) { sides += 1; }
+        if (upNeighbour && rightNeighbour && !leftNeighbour && !downNeighbour) { sides += 1; }
+        if (downNeighbour && leftNeighbour && !rightNeighbour && !upNeighbour) { sides += 1; }
+        if (downNeighbour && rightNeighbour && !leftNeighbour && !upNeighbour) { sides += 1; }
     }
     
     return sides;
