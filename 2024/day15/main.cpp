@@ -222,13 +222,13 @@ int part2(const std::vector<std::string> & input)
         
         if (canMove)
         {
-            for (const std::pair<int, int> boxLocation : boxesToMove)
+            for (const std::pair<int, int> & boxLocation : boxesToMove)
             {
                 map[boxLocation.second][boxLocation.first] = '.';
                 map[boxLocation.second][boxLocation.first + 1] = '.';
             }
 
-            for (const std::pair<int, int> boxLocation : boxesToMove)
+            for (const std::pair<int, int> & boxLocation : boxesToMove)
             {
                 map[boxLocation.second + directions[d].second][boxLocation.first + directions[d].first] = '[';
                 map[boxLocation.second + directions[d].second][boxLocation.first + 1 + directions[d].first] = ']';
