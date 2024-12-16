@@ -1,0 +1,2 @@
+add_executable(Day06 day6.cpp)
+target_link_libraries(Day06 AoC_GenericLib_static)

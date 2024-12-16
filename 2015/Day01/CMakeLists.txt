@@ -1,0 +1,2 @@
+add_executable(Day01 day1.cpp)
+target_link_libraries(Day01 AoC_GenericLib_static)
