@@ -136,41 +136,6 @@ std::string part1(const std::vector<std::string> & input)
     return result;
 }
 
-long long size_longlong(long long num) //the number of num
-{
-    long long n = 0;
-    while (num > 0)
-    {
-        num = num / 10;
-        n = n + 1;
-    }
-    return n;
-}
-
-long long convert(long long num, long long b) //conver num base b to base 10
-{
-    long long sum = 0;
-    long long n = size_longlong(num);
-    long long counter = 0;
-    while (num > 0) {
-        long long temp = num % 10;
-        num = num / 10;
-        sum += temp * (pow(b, counter));
-        counter++;
-    }
-    return sum;
-}
-
-long long reverseToLongLong(std::vector<long long> vec)
-{
-    long long number = 0;
-    for (long long i = 0; i < vec.size(); i++)
-    {
-        number += vec[i] * pow(10, i);
-    }
-    return number;
-}
-
 long long getLowestInitialValue(long long regA, int depth, std::vector<long long> program)
 {
     if (depth < 0) 

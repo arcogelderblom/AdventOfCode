@@ -4,7 +4,7 @@
 [![AoC 2020](https://img.shields.io/badge/2020-⭐%2050-gray?logo=adventofcode&labelColor=3c8d0d)](https://adventofcode.com/2020)
 [![AoC 2021](https://img.shields.io/badge/2021-⭐%2050-gray?logo=adventofcode&labelColor=3c8d0d)](https://adventofcode.com/2021)
 [![AoC 2023](https://img.shields.io/badge/2023-⭐%2028-gray?logo=adventofcode&labelColor=3c8d0d)](https://adventofcode.com/2023)
-[![AoC 2024](https://img.shields.io/badge/2024-⭐%2030-gray?logo=adventofcode&labelColor=3c8d0d)](https://adventofcode.com/2024)
+[![AoC 2024](https://img.shields.io/badge/2024-⭐%2034-gray?logo=adventofcode&labelColor=3c8d0d)](https://adventofcode.com/2024)
 
 My entry for the different years of Advent Of Code
 
@@ -15,7 +15,7 @@ My entry for the different years of Advent Of Code
 | 2020 | 50 :star2: |
 | 2021 | 50 :star2: |
 | 2023 | 28 :star2: |
-| 2024 | 30 :star2: |
+| 2024 | 34 :star2: |
 
 ## Input files
 As per request by Eric Wastl the actual input files that I've got for my entry are hidden inside of a submodule that points to a private repository. All my solutions however should be able to run all possible inputs, so grab yours and try it out!
