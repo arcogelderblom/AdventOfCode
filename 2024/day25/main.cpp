@@ -77,13 +77,6 @@ int part1(const std::vector<std::string> & input)
     return result;
 }
 
-int part2(const std::vector<std::string> & input) 
-{
-    int result = 0;
-    
-    return result;
-}
-
 int main(void) 
 {
     FileHandler testFileHandler("input-files/2024/day25_testinput1.txt");
