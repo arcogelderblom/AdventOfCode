@@ -21,16 +21,6 @@ int distanceTo(const std::pair<int, int> & first, const std::pair<int, int> & se
     return std::abs(first.first - second.first) + std::abs(first.second - second.second);
 }
 
-void output(const std::pair<int, int> & coordinate)
-{
-    std::cout << " " << coordinate.first << "," << coordinate.second << " ";
-}
-
-void output(const std::set<std::pair<int, int>> & coordinates)
-{
-    
-}
-
 int getPicoSecondsForShortestPath(std::pair<int, int> & start, const std::pair<int, int> & finish, const std::vector<std::string> & map, std::map<std::pair<int, int>, int> & picosecondsToCoordinate)
 {
     // pair consists of <current steps + min steps to end, current coordinate>
