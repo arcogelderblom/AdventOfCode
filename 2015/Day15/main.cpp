@@ -6,15 +6,6 @@
 #include "StringParser.hpp"
 #include "FileHandler.hpp"
 
-void output(const std::vector<int> & vec)
-{
-    for (const int & elem : vec)
-    {
-        std::cout << elem << " | ";
-    }
-    std::cout << std::endl;
-}
-
 void getOptions(int ingredients, std::vector<std::vector<int>> & options, int maxAmount = 100, int amountUsed = 0, std::vector<int> current = std::vector<int>())
 {
     if (ingredients == 0)
