@@ -35,13 +35,11 @@ int part1(const std::vector<std::string> & input)
                 }
                 if (adjacentRolls < 4)
                 {
-                    std::cout << x << "," << y<< " -" << adjacentRolls << std::endl;
                     result++;
                 }
             }
         }
     }
-    std::cout << result << std::endl;
     return result;
 }
 
